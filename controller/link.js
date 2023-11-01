@@ -48,7 +48,7 @@ const updateLink = async (req, res) => {
     );
 
     if (updateLink === null) {
-      return res.status(400).send({ message: "No data to update" });
+      return res.status(400).send({ message: "No data to aaaa" });
     }
     if (updateLink) {
       return res.status(200).send({ message: "Link is updated", updateLink });
