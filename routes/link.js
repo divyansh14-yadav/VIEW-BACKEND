@@ -6,7 +6,7 @@ const linkRoute = express.Router();
 
 linkRoute.post("/createLink",verifyToken,linkController.createLink);
 
-linkRoute.get("/get",verifyToken, linkController.getAllLinks);
+linkRoute.get("/get", linkController.getAllLinks);
 
 linkRoute.put("/update/:id",verifyToken, linkController.updateLink);
 
