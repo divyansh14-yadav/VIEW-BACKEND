@@ -6,7 +6,7 @@ import cors from 'cors';
 import * as path from 'path';
 import * as url from 'url';
 import authRoute from './routes/auth.js';
-
+import linkRoute from './routes/link.js';
 dotenv.config();
 
 const app = express();
@@ -16,18 +16,22 @@ const __dirname=url.fileURLToPath(new URL('.',import.meta.url));
 app.use(express.json())
 
 
-app.use(
-    cors({
-      origin: "http://localhost:3000", 
-      methods: "GET,PUT,POST,DELETE",
-      credentials: true,
-    })
-  );
+// app.use(
+//     cors({
+//       origin: "http://localhost:3000", 
+//       methods: "GET,PUT,POST,DELETE",
+//       credentials: true,
+//     })
+//   );
 
+app.use(
+    cors("*")
+  );
 // app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use('/',authRoute)
+app.use('/',linkRoute)
 
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
