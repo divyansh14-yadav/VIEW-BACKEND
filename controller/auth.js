@@ -17,7 +17,7 @@ const register = async (req, res) => {
     const user = await Auth.findOne({ email });
 
     if (user) {
-      return res.status(400).json({ message: "Email already in use" });
+      return res.status(400).json({ message: "Email already taken" });
     }
 
     const pass = await bcrypt.hash(password, 10);
