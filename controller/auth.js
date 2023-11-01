@@ -8,7 +8,7 @@ const authController = express.Router();
 const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    console.log(req.body, "body");
+    console.log(req.body, "bodylog");
 
     if (!name || !email || !password) {
       return res.status(400).json({ message: "Field is required" });
